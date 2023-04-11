@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smartphones Models</title>
+    <style>
+        .colum{
+            float: left;
+            width: 10%;
+        }
+        .techSearch {
+            height: 768px;
+            width: 192px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="techSearch">
+        <div>
+            <a th:href="@{/smartphones/{model}(model=${model})}">Reset</a>
+            <a th:href="@{/smartphones}">Go back</a>
+        </div>
+        <form th:method="GET" th:action="@{/smartphones/{model}/filter(model=${model})}">
+            <input type="text" name="name" placeholder="Name of product">
+            <input type="submit" value="Find by name">
+        </form>
+        <form th:method="GET" th:action="@{/smartphones/{model}/filter(model=${model})}">
+            <input type="number" min="0" th:value="0" name="priceFrom"  id="priceFrom">
+            <label for="priceFrom">Price from</label>
+            <input type="number" min="0" th:value="1" name="priceTo"  id="priceTo">
+            <label for="priceTo">Price to</label>
+            <input type="text" name="color" placeholder="Color">
+            <input type="number" min="0" name="memory" id="memory" placeholder="memory">
+            <input type="number" min="0" name="cameraCount"  id="cameraCount" placeholder="cameraCount">
+            <input type="submit" value="show">
+        </form>
+        <a th:href="@{/smartphones/{model}/new(model=${model})}">Create new smartphone</a>
+    </div>
+    <div style="float: left; width: 1000px">
+        <div th:each="smartphoneModel : ${smartphones}">
+            <div class="colum">
+                <p th:text="${smartphoneModel.getName()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${smartphoneModel.getSerialNumber()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${smartphoneModel.getPrice()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${smartphoneModel.getColor()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${smartphoneModel.getSize()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${smartphoneModel.getMemory()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${smartphoneModel.getCameraCount()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${smartphoneModel.getProductAvailability()}"></p>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+</body>
+</html>

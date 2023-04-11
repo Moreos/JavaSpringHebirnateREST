@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smartphones</title>
+    <style>
+        .colum{
+            float: left;
+            width: 15%;
+        }
+    </style>
+</head>
+<body>
+    <div th:each="smartphone : ${smartphones}">
+        <div class="colum">
+            <a th:href="@{/smartphones/{name}(name=${smartphone.getName().toLowerCase()})}" th:text="${smartphone.getName()}"></a>
+        </div>
+        <div class="colum">
+            <p  th:text="${smartphone.getCountryOfManufacturer()}"></p>
+        </div>
+        <div class="colum">
+            <p  th:text="${smartphone.getFirmOfManufacturer()}"></p>
+        </div>
+        <div class="colum">
+            <p  th:text="${smartphone.getCanOrderOnline()}"></p>
+        </div>
+        <div class="colum">
+            <p  th:text="${smartphone.getCanInstallments()}"></p>
+        </div>
+        <div class="colum">
+            <ul>
+                <li th:each="smartphoneModel : ${smartphone.getSmartphones()}" th:text="${smartphoneModel.getName()}"></li>
+            </ul>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    <a th:href="@{/smartphones/new}">Create new smartphone</a>
+</body>
+</html>
