@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Smartphone {
+public class Fridge {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -15,12 +15,12 @@ public class Smartphone {
     private Boolean canOrderOnline;
     private Boolean canInstallments;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "smartphone")
-    private Set<SmartphoneModel> smartphones;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "fridge")
+    private Set<FridgeModel> fridges;
 
-    public Smartphone() {}
+    public Fridge() {}
 
-    public Smartphone(String name, String countryOfManufacturer, String firmOfManufacturer, Boolean canOrderOnline, Boolean canInstallments) {
+    public Fridge(String name, String countryOfManufacturer, String firmOfManufacturer, Boolean canOrderOnline, Boolean canInstallments) {
         this.name = name;
         this.countryOfManufacturer = countryOfManufacturer;
         this.firmOfManufacturer = firmOfManufacturer;
@@ -76,15 +76,11 @@ public class Smartphone {
         this.canInstallments = canInstallments;
     }
 
-    public Set<SmartphoneModel> getSmartphones() {
-        return smartphones;
+    public Set<FridgeModel> getFridges() {
+        return fridges;
     }
 
-    public void setSmartphones(Set<SmartphoneModel> smartphones) {
-        this.smartphones = smartphones;
-    }
-
-    public Set<SmartphoneModel> getModels() {
-        return smartphones;
+    public void setFridges(Set<FridgeModel> fridges) {
+        this.fridges = fridges;
     }
 }

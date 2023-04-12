@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smartphones Models</title>
+    <style>
+        .colum{
+            float: left;
+            width: 10%;
+        }
+        .techSearch {
+            height: 768px;
+            width: 192px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="techSearch">
+        <div>
+            <a th:href="@{/fridges/{model}(model=${model})}">Reset</a>
+            <a th:href="@{/fridges}">Go back</a>
+        </div>
+        <form th:method="GET" th:action="@{/fridges/{model}/filter(model=${model})}">
+            <input type="text" name="name" placeholder="Name of product">
+            <input type="submit" value="Find by name">
+        </form>
+        <form th:method="GET" th:action="@{/fridges/{model}/filter(model=${model})}">
+            <input type="number" min="0" th:value="0" name="priceFrom"  id="priceFrom">
+            <label for="priceFrom">Price from</label>
+            <input type="number" min="0" th:value="1" name="priceTo"  id="priceTo">
+            <label for="priceTo">Price to</label>
+            <input type="text" name="color" placeholder="Color">
+            <input type="number" min="0" name="doorsCount" id="doorsCount" placeholder="doorsCount">
+            <input type="text" name="compressorType"  id="compressorType" placeholder="compressorType">
+            <input type="submit" value="show">
+        </form>
+        <a th:href="@{/fridges/{model}/new(model=${model})}">Create new fridge</a>
+    </div>
+    <div style="float: left; width: 1000px">
+        <div th:each="fridgeModel : ${fridges}">
+            <div class="colum">
+                <p th:text="${fridgeModel.getName()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${fridgeModel.getSerialNumber()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${fridgeModel.getPrice()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${fridgeModel.getColor()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${fridgeModel.getSize()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${fridgeModel.getDoorsCount()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${fridgeModel.getCompressorType()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${fridgeModel.getProductAvailability()}"></p>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+</body>
+</html>

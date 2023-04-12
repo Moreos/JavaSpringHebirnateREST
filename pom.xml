@@ -53,73 +53,13 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>io.swagger.core.v3</groupId>
-            <artifactId>swagger-annotations</artifactId>
-            <version>2.1.6</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui -->
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-ui</artifactId>
-            <version>1.5.9</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-dependencies</artifactId>
-            <version>2022.0.2</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>io.github.classgraph</groupId>
-            <artifactId>classgraph</artifactId>
-            <version>4.8.139</version>
-        </dependency>
     </dependencies>
-
-    <execution>
-        <id>mysql-schema</id>
-        <phase>generate-sources</phase>
-        <goals>
-            <goal>disabled</goal>
-        </goals>
-        <configuration>
-            <inputSpec>spec.yaml</inputSpec>
-            <generatorName>mysql-schema</generatorName>
-            <configOptions>
-                <identifierNamingConvention>snake_case</identifierNamingConvention>
-            </configOptions>
-            <output>${project.build.directory}/generated-sources/mysql</output>
-        </configuration>
-    </execution>
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.springdoc</groupId>
-                <artifactId>springdoc-openapi-maven-plugin</artifactId>
-                <version>0.3</version>
-                <executions>
-                    <execution>
-                        <phase>integration-test</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <apiDocsUrl>http://localhost:8080/v3/api-docs</apiDocsUrl>
-                    <outputFileName>openapi.yaml</outputFileName>
-                    <outputDir>${project.build.directory}</outputDir>
-                </configuration>
             </plugin>
         </plugins>
 

@@ -1,6 +1,5 @@
 package com.moreos.javaspringopenapiver2.controllers;
 
-import com.moreos.javaspringopenapiver2.models.Smartphone;
 import com.moreos.javaspringopenapiver2.models.SmartphoneModel;
 import com.moreos.javaspringopenapiver2.repositories.SmartphoneModelRepository;
 import com.moreos.javaspringopenapiver2.repositories.SmartphoneRepository;

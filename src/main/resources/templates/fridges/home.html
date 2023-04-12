@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fridges</title>
+    <style>
+        .colum{
+            float: left;
+            width: 15%;
+        }
+    </style>
+</head>
+<body>
+    <div th:each="fridge : ${fridges}">
+        <div class="colum">
+            <a th:href="@{/fridges/{name}(name=${fridge.getName().toLowerCase()})}" th:text="${fridge.getName()}"></a>
+        </div>
+        <div class="colum">
+            <p  th:text="${fridge.getCountryOfManufacturer()}"></p>
+        </div>
+        <div class="colum">
+            <p  th:text="${fridge.getFirmOfManufacturer()}"></p>
+        </div>
+        <div class="colum">
+            <p  th:text="${fridge.getCanOrderOnline()}"></p>
+        </div>
+        <div class="colum">
+            <p  th:text="${fridge.getCanInstallments()}"></p>
+        </div>
+        <div class="colum">
+            <ul>
+                <li th:each="fridgeModel : ${fridge.getFridges()}" th:text="${fridgeModel.getName()}"></li>
+            </ul>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    <a th:href="@{/}">Go back</a>
+    <a th:href="@{/fridges/new}">Create new fridge</a>
+</body>
+</html>
