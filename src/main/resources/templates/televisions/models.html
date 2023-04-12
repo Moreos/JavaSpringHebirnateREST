@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smartphones Models</title>
+    <style>
+        .colum{
+            float: left;
+            width: 10%;
+        }
+        .techSearch {
+            height: 768px;
+            width: 192px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="techSearch">
+        <div>
+            <a th:href="@{/televisions/{model}(model=${model})}">Reset</a>
+            <a th:href="@{/televisions}">Go back</a>
+        </div>
+        <form th:method="GET" th:action="@{/televisions/{model}/filter(model=${model})}">
+            <input type="text" name="name" placeholder="Name of product">
+            <input type="submit" value="Find by name">
+        </form>
+        <form th:method="GET" th:action="@{/televisions/{model}/filter(model=${model})}">
+            <input type="number" min="0" th:value="0" name="priceFrom"  id="priceFrom">
+            <label for="priceFrom">Price from</label>
+            <input type="number" min="0" th:value="1" name="priceTo"  id="priceTo">
+            <label for="priceTo">Price to</label>
+            <input type="text" name="color" placeholder="Color">
+            <input type="text" name="category" id="doorsCount" placeholder="category">
+            <input type="text" name="technology"  id="compressorType" placeholder="technology">
+            <input type="submit" value="show">
+        </form>
+        <a th:href="@{/televisions/{model}/new(model=${model})}">Create new television</a>
+    </div>
+    <div style="float: left; width: 1000px">
+        <div th:each="televisionModel : ${televisions}">
+            <div class="colum">
+                <p th:text="${televisionModel.getName()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${televisionModel.getSerialNumber()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${televisionModel.getPrice()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${televisionModel.getColor()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${televisionModel.getSize()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${televisionModel.getCategory()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${televisionModel.getTechnology()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${televisionModel.getProductAvailability()}"></p>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+</body>
+</html>

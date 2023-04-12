@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>televisions</title>
+    <style>
+        .colum{
+            float: left;
+            width: 15%;
+        }
+    </style>
+</head>
+<body>
+    <div th:each="television : ${televisions}">
+        <div class="colum">
+            <a th:href="@{/televisions/{name}(name=${television.getName().toLowerCase()})}" th:text="${television.getName()}"></a>
+        </div>
+        <div class="colum">
+            <p  th:text="${television.getCountryOfManufacturer()}"></p>
+        </div>
+        <div class="colum">
+            <p  th:text="${television.getFirmOfManufacturer()}"></p>
+        </div>
+        <div class="colum">
+            <p  th:text="${television.getCanOrderOnline()}"></p>
+        </div>
+        <div class="colum">
+            <p  th:text="${television.getCanInstallments()}"></p>
+        </div>
+        <div class="colum">
+            <ul>
+                <li th:each="televisionModel : ${television.getTelevisions()}" th:text="${televisionModel.getName()}"></li>
+            </ul>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    <a th:href="@{/}">Go back</a>
+    <a th:href="@{/televisions/new}">Create new television</a>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new model</title>
+</head>
+<body>
+    <form th:method="POST" th:action="@{/televisions/{model}(model=${model.toLowerCase()})}" th:object="${televisionModel}">
+        <input type="text" th:field="*{name}" id="name" placeholder="name">
+        <br/>
+        <input type="text" th:field="*{serialNumber}" id="serialNumber" placeholder="serialNumber">
+        <br/>
+        <input type="text" th:field="*{color}" id="color" placeholder="color">
+        <br/>
+        <input type="number" min="0" th:field="*{price}" id="price" placeholder="price">
+        <br/>
+        <input type="number" th:field="*{size}" id="size" placeholder="size">
+        <br/>
+        <input type="text" th:field="*{category}" placeholder="category">
+        <br/>
+        <input type="text" th:field="*{technology}" placeholder="technology">
+        <label for="productAvailability">productAvailability</label>
+        <input type="checkbox" th:field="*{productAvailability}" id="productAvailability">
+        <br/>
+        <input type="submit" value="Create!"/>
+    </form>
+</body>
+</html>

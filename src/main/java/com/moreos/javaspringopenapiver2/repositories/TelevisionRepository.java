@@ -1,4 +1,9 @@
 package com.moreos.javaspringopenapiver2.repositories;
 
-public interface TelevisionRepository {
+import com.moreos.javaspringopenapiver2.models.Fridge;
+import com.moreos.javaspringopenapiver2.models.Television;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TelevisionRepository extends JpaRepository<Television, Long> {
+    Television findByNameIgnoreCase(String name);
 }
