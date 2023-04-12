@@ -2,8 +2,6 @@ package com.moreos.javaspringopenapiver2.models;
 
 import jakarta.persistence.*;
 
-import java.util.Set;
-
 @Entity
 public class SmartphoneModel {
     @Id

@@ -2,7 +2,6 @@ package com.moreos.javaspringopenapiver2.repositories;
 
 import com.moreos.javaspringopenapiver2.models.Fridge;
 import com.moreos.javaspringopenapiver2.models.FridgeModel;
-import com.moreos.javaspringopenapiver2.models.SmartphoneModel;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

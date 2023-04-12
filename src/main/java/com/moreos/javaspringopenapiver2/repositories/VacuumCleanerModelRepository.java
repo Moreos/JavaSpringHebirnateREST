@@ -1,6 +1,5 @@
 package com.moreos.javaspringopenapiver2.repositories;
 
-import com.moreos.javaspringopenapiver2.models.Television;
 import com.moreos.javaspringopenapiver2.models.VacuumCleaner;
 import com.moreos.javaspringopenapiver2.models.VacuumCleanerModel;
 import org.springframework.data.domain.Sort;

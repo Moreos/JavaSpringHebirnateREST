@@ -1,7 +1,6 @@
 package com.moreos.javaspringopenapiver2.controllers;
 
 import com.moreos.javaspringopenapiver2.models.Fridge;
-import com.moreos.javaspringopenapiver2.models.Smartphone;
 import com.moreos.javaspringopenapiver2.repositories.FridgeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

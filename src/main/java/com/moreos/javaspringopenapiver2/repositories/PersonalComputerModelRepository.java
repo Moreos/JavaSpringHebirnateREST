@@ -1,6 +1,5 @@
 package com.moreos.javaspringopenapiver2.repositories;
 
-import com.moreos.javaspringopenapiver2.models.Fridge;
 import com.moreos.javaspringopenapiver2.models.PersonalComputer;
 import com.moreos.javaspringopenapiver2.models.PersonalComputerModel;
 import org.springframework.data.domain.Sort;
