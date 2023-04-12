@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smartphones Models</title>
+    <style>
+        .colum{
+            float: left;
+            width: 10%;
+        }
+        .techSearch {
+            height: 768px;
+            width: 192px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="techSearch">
+        <div>
+            <a th:href="@{/personalComputers/{model}(model=${model})}">Reset</a>
+            <a th:href="@{/personalComputers}">Go back</a>
+        </div>
+        <form th:method="GET" th:action="@{/personalComputers/{model}/filter(model=${model})}">
+            <input type="text" name="name" placeholder="Name of product">
+            <input type="submit" value="Find by name">
+        </form>
+        <form th:method="GET" th:action="@{/personalComputers/{model}/filter(model=${model})}">
+            <input type="number" min="0" th:value="0" name="priceFrom"  id="priceFrom">
+            <label for="priceFrom">Price from</label>
+            <input type="number" min="0" th:value="1" name="priceTo"  id="priceTo">
+            <label for="priceTo">Price to</label>
+            <input type="text" name="color" placeholder="Color">
+            <input type="text" name="category" id="category" placeholder="category">
+            <input type="text" name="processorType"  id="processorType" placeholder="processorType">
+            <input type="submit" value="show">
+        </form>
+        <a th:href="@{/personalComputers/{model}/new(model=${model})}">Create new personalComputer</a>
+    </div>
+    <div style="float: left; width: 1000px">
+        <div th:each="personalComputersModel : ${personalComputers}">
+            <div class="colum">
+                <p th:text="${personalComputersModel.getName()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${personalComputersModel.getSerialNumber()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${personalComputersModel.getPrice()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${personalComputersModel.getColor()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${personalComputersModel.getSize()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${personalComputersModel.getCategory()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${personalComputersModel.getProcessorType()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${personalComputersModel.getProductAvailability()}"></p>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+</body>
+</html>

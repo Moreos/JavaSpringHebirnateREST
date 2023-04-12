@@ -19,7 +19,8 @@
         <input type="number" min="0" th:field="*{memory}" placeholder="memory">
         <br/>
         <input type="number" min="0" th:field="*{cameraCount}" placeholder="cameraCount">
-        <input type="checkbox" th:field="*{productAvailability}">
+        <label for="productAvailability">productAvailability</label>
+        <input type="checkbox" th:field="*{productAvailability}" id="productAvailability">
         <br/>
         <input type="submit" value="Create!"/>
     </form>

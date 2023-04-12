@@ -5,7 +5,7 @@
     <title>Create new model</title>
 </head>
 <body>
-    <form th:method="POST" th:action="@{/fridges/{model}(model=${model.toLowerCase()})}" th:object="${fridgeModel}">
+    <form th:method="POST" th:action="@{/personalComputers/{model}(model=${model.toLowerCase()})}" th:object="${personalComputerModel}">
         <input type="text" th:field="*{name}" id="name" placeholder="name">
         <br/>
         <input type="text" th:field="*{serialNumber}" id="serialNumber" placeholder="serialNumber">
@@ -16,9 +16,9 @@
         <br/>
         <input type="number" th:field="*{size}" id="size" placeholder="size">
         <br/>
-        <input type="number" min="0" th:field="*{doorsCount}" placeholder="doorsCount">
+        <input type="text" th:field="*{category}" placeholder="category">
         <br/>
-        <input type="text" th:field="*{compressorType}" placeholder="compressorType">
+        <input type="text" th:field="*{processorType}" placeholder="processorType">
         <label for="productAvailability">productAvailability</label>
         <input type="checkbox" th:field="*{productAvailability}" id="productAvailability">
         <br/>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>personalComputers</title>
+    <style>
+        .colum{
+            float: left;
+            width: 15%;
+        }
+    </style>
+</head>
+<body>
+    <div th:each="personalComputer : ${personalComputers}">
+        <div class="colum">
+            <a th:href="@{/personalComputers/{name}(name=${personalComputer.getName().toLowerCase()})}" th:text="${personalComputer.getName()}"></a>
+        </div>
+        <div class="colum">
+            <p  th:text="${personalComputer.getCountryOfManufacturer()}"></p>
+        </div>
+        <div class="colum">
+            <p  th:text="${personalComputer.getFirmOfManufacturer()}"></p>
+        </div>
+        <div class="colum">
+            <p  th:text="${personalComputer.getCanOrderOnline()}"></p>
+        </div>
+        <div class="colum">
+            <p  th:text="${personalComputer.getCanInstallments()}"></p>
+        </div>
+        <div class="colum">
+            <ul>
+                <li th:each="personalComputerModel : ${personalComputer.getPersonalComputers()}" th:text="${personalComputerModel.getName()}"></li>
+            </ul>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    <a th:href="@{/}">Go back</a>
+    <a th:href="@{/personalComputers/new}">Create new personalComputer</a>
+</body>
+</html>
