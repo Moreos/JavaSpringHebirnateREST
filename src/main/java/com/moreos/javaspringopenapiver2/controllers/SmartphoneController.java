@@ -2,6 +2,8 @@ package com.moreos.javaspringopenapiver2.controllers;
 
 import com.moreos.javaspringopenapiver2.models.Smartphone;
 import com.moreos.javaspringopenapiver2.repositories.SmartphoneRepository;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +15,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/smartphones")
-//@Tag(name = "Серия смартфонов", description = "Контроллер для работы с сериями смартонов")
+@Tag(name = "Серия смартфонов", description = "Контроллер для работы с сериями смартонов")
 public class SmartphoneController {
     private final SmartphoneRepository smartphoneRepository;
 
@@ -23,13 +25,13 @@ public class SmartphoneController {
     }
 
     @ModelAttribute("smartphones")
-//    @Operation(summary = "Добавляет атрибут в модель со списком смартфонов")
+    @Operation(summary = "Добавляет атрибут в модель со списком смартфонов")
     public List<Smartphone> getSmartphonesList() {
         return smartphoneRepository.findAll();
     }
 
     @GetMapping
-//    @Operation(summary = "Возвращает стартовую страницу")
+    @Operation(summary = "Возвращает стартовую страницу")
     public String homePage() {
         return "smartphones/home";
     }

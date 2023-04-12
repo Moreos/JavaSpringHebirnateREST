@@ -1,17 +1,18 @@
 package com.moreos.javaspringopenapiver2.models;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
 import java.util.Set;
 
-//@Schema(description = "Информация о созданной линейки смартфонов")
+@Schema(description = "Информация о созданной линейки смартфонов")
 @Entity
 public class Smartphone {
-//    @Schema(description = "Id серии")
+    @Schema(description = "Id серии")
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-//    @Schema(description = "Наименование серии")
+    @Schema(description = "Наименование серии")
     private String name;
     private String countryOfManufacturer;
     private String firmOfManufacturer;
