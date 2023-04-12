@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new vacuumCleaner</title>
+</head>
+<body>
+    <form th:method="POST" th:action="@{/vacuumCleaners}" th:object="${vacuumCleaner}">
+        <input type="text" th:field="*{name}" id="name" placeholder="name"/>
+        <br/>
+        <input type="text" th:field="*{countryOfManufacturer}" id="countryOfManufacturer" placeholder="countryOfManufacturer"/>
+        <br/>
+        <input type="text" th:field="*{firmOfManufacturer}" id="firmOfManufacturer" placeholder="firmOfManufacturer"/>
+        <br/>
+        <input type="checkbox" th:field="*{canOrderOnline}" id="canOrderOnline" placeholder="canOrderOnline"/>
+        <br/>
+        <input type="checkbox" th:field="*{canInstallments}" id="canInstallments" placeholder="canInstallments"/>
+        <br/>
+        <input type="submit" value="Create!"/>
+    </form>
+</body>
+</html>

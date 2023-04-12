@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smartphones Models</title>
+    <style>
+        .colum{
+            float: left;
+            width: 10%;
+        }
+        .techSearch {
+            height: 768px;
+            width: 192px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="techSearch">
+        <div>
+            <a th:href="@{/vacuumCleaners/{model}(model=${model})}">Reset</a>
+            <a th:href="@{/vacuumCleaners}">Go back</a>
+        </div>
+        <form th:method="GET" th:action="@{/vacuumCleaners/{model}/filter(model=${model})}">
+            <input type="text" name="name" placeholder="Name of product">
+            <input type="submit" value="Find by name">
+        </form>
+        <form th:method="GET" th:action="@{/vacuumCleaners/{model}/filter(model=${model})}">
+            <input type="number" min="0" th:value="0" name="priceFrom"  id="priceFrom">
+            <label for="priceFrom">Price from</label>
+            <input type="number" min="0" th:value="1" name="priceTo"  id="priceTo">
+            <label for="priceTo">Price to</label>
+            <input type="text" name="color" placeholder="Color">
+            <input type="number" min="0" name="dustCapacity" id="dustCapacity" placeholder="dustCapacity">
+            <input type="number" min="0" name="modesCount"  id="modesCount" placeholder="modesCount">
+            <input type="submit" value="show">
+        </form>
+        <a th:href="@{/vacuumCleaners/{model}/new(model=${model})}">Create new vacuumCleaner</a>
+    </div>
+    <div style="float: left; width: 1000px">
+        <div th:each="vacuumCleaner : ${vacuumCleaners}">
+            <div class="colum">
+                <p th:text="${vacuumCleaner.getName()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${vacuumCleaner.getSerialNumber()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${vacuumCleaner.getPrice()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${vacuumCleaner.getColor()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${vacuumCleaner.getSize()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${vacuumCleaner.getDustCapacity()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${vacuumCleaner.getModesCount()}"></p>
+            </div>
+            <div class="colum">
+                <p  th:text="${vacuumCleaner.getProductAvailability()}"></p>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+</body>
+</html>

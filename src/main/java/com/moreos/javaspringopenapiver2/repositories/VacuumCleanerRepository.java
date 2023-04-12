@@ -1,4 +1,9 @@
 package com.moreos.javaspringopenapiver2.repositories;
 
-public interface VacuumCleanerRepository {
+import com.moreos.javaspringopenapiver2.models.Television;
+import com.moreos.javaspringopenapiver2.models.VacuumCleaner;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface VacuumCleanerRepository extends JpaRepository<VacuumCleaner, Long> {
+    VacuumCleaner findByNameIgnoreCase(String name);
 }
